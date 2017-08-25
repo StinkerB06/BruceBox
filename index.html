@@ -3,8 +3,8 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>Modded Beepbox 1.7</title>
-	<meta name="description" content="BeepBox is an online tool for sketching and sharing chiptune melodies. " />
+	<title>BruceBox 1.0</title>
+	<meta name="description" content="BruceBox is an online tool for sketching and sharing chiptune melodies. " />
 	<meta name="keywords" content="chiptune, music, melody, composition, tool, square wave, NES, NSF, BeepBox, beepbox" />
 	<meta name="viewport" content="width=700">
 	<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -44,14 +44,15 @@
 		<div id="beepboxEditorContainer" style="width: 100px; height: 645px;"></div>
 
 		<h1>
-			Modded Beepbox 1.7
+			BruceBox 1.0
 		</h1>
 		<p id="introduction">
-			BeepBox is an online tool for sketching and sharing chiptune melodies. Modded Beepbox expands the world of Beepbox into a whole new realm!
+			BeepBox is an online tool for sketching and sharing chiptune melodies. BruceBox expands the world of Beepbox into a whole new realm!
 		</p>
 		<p>
 			All song data is packaged into the URL at the top of your browser. When you make changes to the song, the URL is updated
 			to reflect your changes. When you are satisfied with your song, just copy and paste the URL to save and share your song!
+			To import a song from vanilla BeepBox, only copy the hash (#) ID value only.
 		</p>
 
 		<div>
@@ -60,7 +61,7 @@
 					Instructions
 				</h1>
 				<p>
-					You can add or remove notes by clicking on the gray rows at the top. BeepBox automatically plays the notes out loud for you.
+					You can add or remove notes by clicking on the gray rows at the top. BruceBox automatically plays the notes out loud for you.
 					Try it!
 				</p>
 				<p>
@@ -69,15 +70,15 @@
 					on the currently selected box to swap which pattern is played during that part of the song.
 				</p>
 				<p>
-					There are four rows of patterns that BeepBox can play simultaneously, and each row has its own set of patterns. The first
-					three rows can play melodies and the bottom row is for drums.
+					There are four rows of patterns that BruceBox can play simultaneously, and each row has its own set of patterns. The first
+					three rows can play melodies and the bottom row is for drums and white noise.
 				</p>
 				<p>
 					The purple loop underneath the numbered boxes controls which part of the song is currently repeating. Move the loop to listen
 					to a different part of the song, or drag the ends to expand the loop to include the whole song.
 				</p>
 				<p>
-					When BeepBox has focus (click on its interface above), you can use these keyboard shortcuts: <br/>
+					When BruceBox has focus (click on its interface above), you can use these keyboard shortcuts: <br/>
 				</p>
 				<p style="margin-left:50px;">
 					Spacebar: Pause or Resume<br/> Z: Undo<br/> Y or Shift Z: Redo<br/> C: Copy the current pattern<br/> V: Paste the current
@@ -86,30 +87,30 @@
 				</p>
 				<p>
 					In the pattern editor, you can click and drag horizontally on a note to adjust its duration. You can also click above or
-					below an existing note to enable a rapid arpeggio/trill effect, oscillating between two or more simultaneous notes.
+					below an existing note to enable a rapid arpeggio/trill effect, oscillating between 2-4 simultaneous notes.
 				</p>
 				<p>
 					AVDANCED: Drag vertically from an existing note to bend its pitch, or drag vertically from above or below the note to adjust
 					its volume.
 				</p>
 				<p>
-					BeepBox has many more features. Try playing with the buttons and menus on the right side to find out what it can do!
+					BruceBox has many more features. Try playing with the buttons and menus on the right side to find out what it can do!
 				</p>
 				<p>
-					Need some inspiration? <a href="https://twitter.com/beepboxco">Check out some of these songs that other people have posted on Twitter!</a>
+					Need some inspiration? <a href="https://twitter.com/beepboxco">Check out some of these vanilla BeepBox songs that other people have posted on Twitter!</a>
 				</p>
 				<h1>
 					About
 				</h1>
 				<p>
-					BeepBox is developed by <a href="http://www.johnnesky.com">John Nesky</a>, also known as <a href="https://twitter.com/shaktool">@shaktool</a>. Modded Beepbox is developed by Quorble65 and Theepicosity.
+					BeepBox is developed by <a href="http://www.johnnesky.com">John Nesky</a>, also known as <a href="https://twitter.com/shaktool">@shaktool</a>. BruceBox is developed by StinkerB06.
 				</p>
 				<p>
-					BeepBox and Modded Beepbox do not claim ownership over songs created with it, so original songs belong to their authors.
+					BeepBox, MeepMox, and BruceBox do not claim ownership over songs created with them, so original songs belong to their authors.
 				</p>
 				<p>
-					Neither John Nesky, BeepBox, nor the Modded Beepbox Dev Team assume responsibility for any copyrighted material played on BeepBox. No songs are ever received,
-					recorded, or distributed by BeepBox or Moded Beepbox's servers. All song data is contained in the URL after the hash (#) mark, and BeepBox
+					Neither John Nesky, BeepBox, StinkerB06, nor the MeepMox and BruceBox Dev Teams assume responsibility for any copyrighted material played on BeepBox. No songs are ever received,
+					recorded, or distributed by BeepBox, MeepMox, or BruceBox's servers. All song data is contained in the URL after the hash (#) mark, and BeepBox
 					running inside your browser converts that data into sound waves.
 				</p>
 				<p>
@@ -118,7 +119,7 @@
 					in a browser tab to run it, or you can install a <a href="http://www.adobe.com/support/flashplayer/downloads.html">Flash Projector</a>					to run swf files without a browser.
 				</p>
 				<p>
-					You can download and use <a href="https://bitbucket.org/shaktool/beepbox">the source code</a> under the MIT license.
+					You can download and use <a href="https://github.com/StinkerB06/beepbox-modded">the source code</a> under the MIT license.
 					In particular, you can use the synth code <a href="synth_example.html">as demonstrated here</a> to play BeepBox songs
 					in your own Flash or JavaScript projects!
 				</p>
@@ -126,52 +127,7 @@
 					Modded Beepbox Changelog
 				</p>
 				<p> 
-				    25/5/17 1.0.0 - Project started. Original PWM idea failed and became "glitch" instrument. Monotonic scale, arpfest rhythm, and spinner chorus also added.
-				</p>
-				<p>
-					25/5/17 1.0.1 - "Sunsoft bass" instrument added.
-				</p>
-				<p>
-					26/5/17 1.0.2 - "Loud pulse" and "sax" instruments added.
-				</p>
-				<p>
-					26/5/17 1.1.0 - Detune chorus, smaller arpfest rhythm added. Max size for Bars, Instruments, Beats and Patterns increased.
-				</p>
-				<p>
-					26/5/17 1.2.0 - Ninths, sixths, and fifths added as rhythms. 9/4 , 6/4 , and 5/4 galore!
-				</p>
-				<p>
-					26/5/17 1.3.0 - Updated to the newest version of BeepBox vanilla, the "reverb update". Riff instrument, new filters and effects added.
-				</p>
-				<p>
-					29/5/17 1.3.1 - More scales, including challenge and challenge+. Check it out!
-				</p>
-				<p>
-					29/5/17 1.3.2 - Fixed bugs with max values. Riff instrument removed.
-				</p>
-				<p>
-					9/6/17 1.4.0 - Modded Beepbox is live! Fixed bugs with modded urls and other things.
-				</p>
-				<p>
-					13/6/17 1.4.1 - Added a cool new color scheme from the old beepbox days!
-				</p>
-				<p>
-					14/6/17 1.5.0 - Added two new envelopes, "trill" and "click". This changelog also look nicer thatnks to Parad0xGamer!
-				</p>
-				<p>
-					14/6/17 1.5.1 - Small Patch Update to fix issues with effects.
-				</p>
-				<p>
-					9/7/17 1.6.0 - New riff feature added! Sine wave instrument, bass effects and submerged decay also added.
-				</p>
-				<p>
-					11/7/17 1.6.1 - Small patch update.
-				</p>
-				<p>
-					22/7/17 1.6.2 - Removed bass due to problems with creating instruments.
-				</p>
-				<p>
-					6/8/17 1.7.0 - Added fiftieths rhythm. More settings for riff added. Added Shift decay. Fourths and Bass choruses added.
+				    25/8/17 1.0.0 - Project started. Based on Quirby64 and Theepicosity's "MeepMox".
 				</p>
 			</div>
 			<div style="width: 300px; float: right;">
