@@ -1,6 +1,4 @@
 # BruceBox
-> v1.7.0
-
 The best thing since BeepBox and MeepMox!
 ## About
 BeepBox is an online tool for sketching and sharing chiptune melodies. BruceBox expands the world of Beepbox into a whole new realm!
