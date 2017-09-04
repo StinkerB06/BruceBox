@@ -25,7 +25,7 @@ V: Paste the current pattern
 Arrow Keys: Change which bar is selected
 1-8: Reassign a pattern to the currently selected bar
 ### Editing notes
-In the pattern editor, you can click and drag horizontally on a note to adjust its duration. You can also click above or below an existing note to enable a rapid arpeggio/trill effect, oscillating between 2-4 simultaneous notes.
+In the pattern editor, you can click and drag horizontally on a note to adjust its duration. You can also click above or below an existing note to enable a rapid arpeggio/trill effect, oscillating between 2-6 simultaneous notes.
 > Cool tricky tip: Drag vertically from an existing note to bend its pitch, or drag vertically from above or below the note to adjust its volume.
 ## Please note
 Neither John Nesky, BeepBox, StinkerB06, nor the MeepMox and BruceBox Dev Teams assume responsibility for any copyrighted material played in BruceBox. No songs are ever received, recorded, or distributed by BeepBox, MeepMox, or BruceBox's servers. All song data is contained in the URL after the hash (#) mark, and BruceBox running inside your browser converts that data into sound waves.
