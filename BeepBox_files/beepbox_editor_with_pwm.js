@@ -280,7 +280,7 @@ Music.waveNames = ["triangle", "square", "pulse wide", "pulse narrow", "sawtooth
             this.instrumentAttacks = [[1], [1], [1], [1]];
             this.instrumentEffects = [[0], [0], [0], [0]];
             this.instrumentChorus = [[0], [0], [0], [0]];
-            this.scale = 0;
+            this.scale = 11;
             this.key = Music.keyNames.length - 1;
             this.loopStart = 0;
             this.loopLength = 4;
@@ -1717,7 +1717,13 @@ Music.waveNames = ["triangle", "square", "pulse wide", "pulse narrow", "sawtooth
                         }
                         else if (tone.notes.length == 4) {
                             pitch = tone.notes[this._arpeggio];
-                        }
+			}
+			else if (tone.notes.length == 5) {
+		            pitch = tone.notes[this._arpeggio == 5 ? 1 : this._arpeggio];
+		        }
+			else if (tone.notes.length == 6) {
+			    pitch = tone.notes[this._arpeggio == 6 ? 1 : this._arpeggio];
+			}
                         else {
                             pitch = tone.notes[0];
                         }
@@ -5671,7 +5677,7 @@ var beepbox;
             this._songEditor = _songEditor;
             this._fileName = input({ type: "text", style: "width: 10em;", value: "BeepBox-Song", maxlength: 250 });
             this._enableIntro = input({ type: "checkbox" });
-            this._loopDropDown = input({ style: "width: 2em;", type: "number", min: "1", max: "4", step: "1" });
+            this._loopDropDown = input({ style: "width: 2em;", type: "number", min: "1", max: "10", step: "1" });
             this._enableOutro = input({ type: "checkbox" });
             this._exportWavButton = button({}, [text("Export to .wav file")]);
             this._exportMidiButton = button({}, [text("Export to .midi file")]);
@@ -6349,7 +6355,7 @@ var beepbox;
             this.mainLayer = div({ className: "beepboxEditor", tabIndex: "0" }, [
                 this._editorBox,
                 div({ className: "editor-right-side" }, [
-                    div({ style: "text-align: center; color: #999;" }, [text("BeepBox 2.1.3")]),
+                    div({ style: "text-align: center; color: #999;" }, [text("BruceBox 2.0")]),
                     div({ style: "margin: 5px 0; display: flex; flex-direction: row; align-items: center;" }, [
                         this._playButton,
                         div({ style: "width: 4px; height: 10px;" }),
