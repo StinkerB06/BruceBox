@@ -1718,12 +1718,6 @@ Music.waveNames = ["triangle", "square", "pulse wide", "pulse narrow", "sawtooth
                         else if (tone.notes.length == 4) {
                             pitch = tone.notes[this._arpeggio];
 			}
-			else if (tone.notes.length == 5) {
-		            pitch = tone.notes[this._arpeggio == 5 ? 1 : this._arpeggio];
-		        }
-			else if (tone.notes.length == 6) {
-			    pitch = tone.notes[this._arpeggio == 6 ? 1 : this._arpeggio];
-			}
                         else {
                             pitch = tone.notes[0];
                         }
