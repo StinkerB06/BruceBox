@@ -184,8 +184,8 @@ var beepbox;
     Music.partCounts = [3, 4, 16, 12, 9, 6, 5, 50, 128];
 Music.waveNames = ["triangle", "square", "pulse wide", "pulse narrow", "sawtooth", "double saw", "double pulse", "spiky", "plateau", "glitch", "10% pulse", "sunsoft bass", "loud pulse", "sax", "guitar", "sine", "pokey 4bit lfsr"];
     Music.waveVolumes = [1.0, 0.5, 0.5, 0.5, 0.65, 0.5, 0.4, 0.4, 0.94, 0.5, 0.5, 1.0, 0.6, 0.2, 0.5, 1.0, 1.0];
-    Music.drumNames = ["retro", "white"];
-    Music.drumVolumes = [0.25, 1.0];
+    Music.drumNames = ["retro", "white", "gb periodic"];
+    Music.drumVolumes = [0.25, 1.0, 1.0];
     Music.filterNames = ["sustain sharp", "sustain medium", "sustain soft", "decay sharp", "decay medium", "decay soft", "ring", "muffled", "submerged", "shift"];
     Music.filterBases = [2.0, 3.5, 5.0, 1.0, 2.5, 4.0, -1.0, 4.0, 6.0, 0.0];
     Music.filterDecays = [0.0, 0.0, 0.0, 10.0, 7.0, 4.0, 0.2, 0.2, 0.3, 0.0];
@@ -1310,6 +1310,17 @@ Music.waveNames = ["triangle", "square", "pulse wide", "pulse narrow", "sawtooth
                         wave_2[i] = Math.random() * 2.0 - 1.0;
                     }
                 }
+		else if (index == 2) {
+		    var drumBuffer = 1;
+                    for (var i = 0; i < 127; i++) {
+                        wave_2[i] = (drumBuffer & 1) * 2.0 - 1.0;
+                        var newBuffer = drumBuffer >> 1;
+                        if (((drumBuffer + newBuffer) & 1) == 1) {
+                            newBuffer += 1 << 14;
+                        }
+                        drumBuffer = newBuffer;
+		    }
+		}
             }
             if (song != null) {
                 this.setSong(song);
@@ -5965,7 +5976,7 @@ var beepbox;
                             throw new Error("Miscalculated number of bars.");
                     }
                     else {
-                        var channelName = ["blue channel", "yellow channel", "orange channel", "gray channel"][channel];
+                        var channelName = ["Yellow channel", "Indigo channel", "Orange channel", "Noise channel"][channel];
                         if (isChorus)
                             channelName += " chorus";
                         writeEventTime(0);
@@ -6217,7 +6228,7 @@ var beepbox;
             this._cancelButton = button({}, [text("Cancel")]);
             this.container = div({ className: "prompt", style: "width: 200px;" }, [
                 div({ style: "font-size: 2em" }, [text("Import")]),
-                div(undefined, [text("BeepBox songs can be exported and re-imported as .json files. You could also use other means to make .json files for BeepBox as long as they follow the same structure.")]),
+                div(undefined, [text("BeepBox and BruceBox songs can be exported and re-imported as .json files. You could also use other means to make .json files for BruceBox as long as they follow the same structure.")]),
                 this._fileInput,
                 this._cancelButton,
             ]);
@@ -6298,13 +6309,13 @@ var beepbox;
                 option("transposeDown", "Shift Notes Down (-)", false, false),
                 option("duration", "Custom song size...", false, false),
                 option("import", "Import JSON...", false, false),
-                option("clean", "Clean Slate", false, false),
+                option("clean", "Zap", false, false),
             ]);
             this._optionsButton = select({ style: "width:100%;" }, [
                 option("", "Preferences Menu", true, true),
-                option("showLetters", "Show Piano", false, false),
+                option("showLetters", "Show Piano/Drums", false, false),
                 option("showFifth", "Highlight 'Fifth' Notes", false, false),
-                option("showChannels", "Show All Channels", false, false),
+                option("showChannels", "Show All Melody Notes", false, false),
                 option("showScrollBar", "Octave Scroll Bar", false, false),
             ]);
             this._exportButton = button({ style: "margin: 5px 0;", type: "button" }, [text("Export")]);
@@ -6349,7 +6360,7 @@ var beepbox;
             this.mainLayer = div({ className: "beepboxEditor", tabIndex: "0" }, [
                 this._editorBox,
                 div({ className: "editor-right-side" }, [
-                    div({ style: "text-align: center; color: #999;" }, [text("BruceBox 2.0")]),
+                    div({ style: "text-align: center; color: #999;" }, [text("BruceBox 2.1")]),
                     div({ style: "margin: 5px 0; display: flex; flex-direction: row; align-items: center;" }, [
                         this._playButton,
                         div({ style: "width: 4px; height: 10px;" }),
@@ -6407,9 +6418,9 @@ var beepbox;
             };
             this._onUpdated = function () {
                 var optionCommands = [
-                    (_this._doc.showLetters ? "✓ " : "") + "Show Piano",
+                    (_this._doc.showLetters ? "✓ " : "") + "Show Piano/Drums",
                     (_this._doc.showFifth ? "✓ " : "") + "Highlight 'Fifth' Notes",
-                    (_this._doc.showChannels ? "✓ " : "") + "Show All Channels",
+                    (_this._doc.showChannels ? "✓ " : "") + "Show All Melody Notes",
                     (_this._doc.showScrollBar ? "✓ " : "") + "Octave Scroll Bar",
                 ];
                 for (var i = 0; i < optionCommands.length; i++) {
