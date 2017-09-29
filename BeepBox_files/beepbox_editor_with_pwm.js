@@ -143,7 +143,7 @@ var beepbox;
         }
         return Music;
     }());
-    Music.scaleNames = ["easy :)", "easy :(", "island :)", "island :(", "blues :)", "blues :(", "normal :)", "normal :(", "romani :)", "romani :(", "enigma", "expert", "monotonic c", "monotonic g", "beep bishop", "challenge", "challenge+", "enigma+"];
+    Music.scaleNames = ["easy :)", "easy :(", "island :)", "island :(", "blues :)", "blues :(", "normal :)", "normal :(", "romani :)", "romani :(", "enigma", "expert", "monotonic", "monotonic meep-compatible", "beep bishop", "challenge", "challenge+", "enigma+", "sixths"];
     Music.scaleFlags = [
         [true, false, true, false, true, false, false, true, false, true, false, false],
         [true, false, false, true, false, true, false, true, false, false, true, false],
@@ -163,29 +163,30 @@ var beepbox;
 		[false, true, true, true, true, true, true, true, true, true, true, true],
 		[false, true, true, true, true, true, true, false, true, true, true, true],
 		[true, true, false, true, true, false, true, true, false, true, true, false],
+	[true, false, false, false, false, false, true, false, false, false, false, false],
     ];
     Music.pianoScaleFlags = [true, false, true, false, true, true, false, true, false, true, false, true];
     Music.blackKeyNameParents = [-1, 1, -1, 1, -1, 1, -1, -1, 1, -1, 1, -1];
     Music.noteNames = ["C", null, "D", null, "E", "F", null, "G", null, "A", null, "B"];
-    Music.keyNames = ["B", "A♯", "A", "G♯", "G", "F♯", "F", "E", "D♯", "D", "C♯", "C"];
-    Music.keyTransposes = [23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12];
+    Music.keyNames = ["B", "A♯", "A", "G♯", "G", "F♯", "F", "E", "D♯", "D", "C♯", "C", "G-", "C-"];
+    Music.keyTransposes = [23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 6, 0];
     Music.tempoNames = ["molasses", "slow", "leisurely", "moderate", "steady", "brisk", "hasty", "fast", "strenuous", "grueling", "hyper", "ludicrous"];
     Music.reverbRange = 4;
 	Music.riffRange = 10;
     Music.beatsMin = 1;
     Music.beatsMax = 16;
     Music.barsMin = 1;
-    Music.barsMax = 255;
+    Music.barsMax = 256;
     Music.patternsMin = 1;
-    Music.patternsMax = 64;
+    Music.patternsMax = 128;
     Music.instrumentsMin = 1;
     Music.instrumentsMax = 64;
-    Music.partNames = ["triples", "standard", "arpfest", "smaller arpfest", "ninths", "sixths", "fifths", "fiftieths", "128ths galore"];
-    Music.partCounts = [3, 4, 16, 12, 9, 6, 5, 50, 128];
-Music.waveNames = ["triangle", "square", "pulse wide", "pulse narrow", "sawtooth", "double saw", "double pulse", "spiky", "plateau", "glitch", "10% pulse", "sunsoft bass", "loud pulse", "sax", "guitar", "sine", "pokey 4bit lfsr"];
-    Music.waveVolumes = [1.0, 0.5, 0.5, 0.5, 0.65, 0.5, 0.4, 0.4, 0.94, 0.5, 0.5, 1.0, 0.6, 0.2, 0.5, 1.0, 1.0];
-    Music.drumNames = ["retro", "white", "gb periodic"];
-    Music.drumVolumes = [0.25, 1.0, 1.0];
+    Music.partNames = ["triples", "standard", "arpfest", "smaller arpfest", "ninths", "sixths", "fifths", "fiftieths", "128ths galore", "sevenths", "simplified arpfest"];
+    Music.partCounts = [3, 4, 16, 12, 9, 6, 5, 50, 128, 7, 8];
+Music.waveNames = ["triangle", "square", "pulse wide", "pulse narrow", "sawtooth", "double saw", "double pulse", "spiky", "plateau", "glitch", "10% pulse", "sunsoft bass", "loud pulse", "sax", "guitar", "sine", "pokey 4bit lfsr", "pokey 5-step bass", "isolated spiky"];
+    Music.waveVolumes = [1.0, 0.5, 0.5, 0.5, 0.65, 0.5, 0.4, 0.4, 0.94, 0.5, 0.5, 1.0, 0.6, 0.2, 0.5, 1.0, 1.0, 1.0, 0.4];
+    Music.drumNames = ["retro", "white"];
+    Music.drumVolumes = [0.25, 1.0];
     Music.filterNames = ["sustain sharp", "sustain medium", "sustain soft", "decay sharp", "decay medium", "decay soft", "ring", "muffled", "submerged", "shift"];
     Music.filterBases = [2.0, 3.5, 5.0, 1.0, 2.5, 4.0, -1.0, 4.0, 6.0, 0.0];
     Music.filterDecays = [0.0, 0.0, 0.0, 10.0, 7.0, 4.0, 0.2, 0.2, 0.3, 0.0];
@@ -1243,8 +1244,10 @@ Music.waveNames = ["triangle", "square", "pulse wide", "pulse narrow", "sawtooth
 				new Float64Array([-0.5, 3.5, 3.0, -0.5, -0.25, -1.0]),
 				new Float64Array([0.0, 0.05, 0.125, 0.2, 0.25, 0.3, 0.425, 0.475, 0.525, 0.625, 0.675, 0.725, 0.775, 0.8, 0.825, 0.875, 0.9, 0.925, 0.95, 0.975, 0.98, 0.99, 0.995, 1, 0.995, 0.99, 0.98, 0.975, 0.95, 0.925, 0.9, 0.875, 0.825, 0.8, 0.775, 0.725, 0.675, 0.625, 0.525, 0.475, 0.425, 0.3, 0.25, 0.2, 0.125, 0.05, 0.0, -0.05, -0.125, -0.2, -0.25, -0.3, -0.425, -0.475, -0.525, -0.625, -0.675, -0.725, -0.775, -0.8, -0.825, -0.875, -0.9, -0.925, -0.95, -0.975, -0.98, -0.99, -0.995, -1, -0.995, -0.99, -0.98, -0.975, -0.95, -0.925, -0.9, -0.875, -0.825, -0.8, -0.775, -0.725, -0.675, -0.625, -0.525, -0.475, -0.425, -0.3, -0.25, -0.2, -0.125, -0.05]),
 		                new Float64Array([1.0, -1.0, -1.0, -1.0, 1.0, 1.0, 1.0, 1.0, -1.0, 1.0, -1.0, 1.0, 1.0, -1.0, -1.0])
+		    		new Float64Array([-1.0, 1.0, -1.0, 1.0, 1.0])
+				new Float64Array([-1.0, 1.0, -1.0, 1.0, -1.0, 1.0])
             ];
-            this._drumWaves = [new Float32Array(32767), new Float32Array(32767), new Float32Array(127)];
+            this._drumWaves = [new Float32Array(32767), new Float32Array(32767)];
             this.song = null;
             this.stutterPressed = false;
             this.pianoPressed = false;
@@ -1310,17 +1313,6 @@ Music.waveNames = ["triangle", "square", "pulse wide", "pulse narrow", "sawtooth
                         wave_2[i] = Math.random() * 2.0 - 1.0;
                     }
                 }
-		else if (index == 2) {
-		    var drumBuffer = 1;
-                    for (var i = 0; i < 127; i++) {
-                        wave_2[i] = (drumBuffer & 1) * 2.0 - 1.0;
-                        var newBuffer = drumBuffer >> 1;
-                        if (((drumBuffer + newBuffer) & 1) == 1) {
-                            newBuffer += 1 << 14;
-                        }
-                        drumBuffer = newBuffer;
-		    }
-		}
             }
             if (song != null) {
                 this.setSong(song);
@@ -5680,7 +5672,7 @@ var beepbox;
             var _this = this;
             this._doc = _doc;
             this._songEditor = _songEditor;
-            this._fileName = input({ type: "text", style: "width: 10em;", value: "BeepBox-Song", maxlength: 250 });
+            this._fileName = input({ type: "text", style: "width: 10em;", value: "BruceBox Project", maxlength: 250 });
             this._enableIntro = input({ type: "checkbox" });
             this._loopDropDown = input({ style: "width: 2em;", type: "number", min: "1", max: "10", step: "1" });
             this._enableOutro = input({ type: "checkbox" });
@@ -6360,7 +6352,7 @@ var beepbox;
             this.mainLayer = div({ className: "beepboxEditor", tabIndex: "0" }, [
                 this._editorBox,
                 div({ className: "editor-right-side" }, [
-                    div({ style: "text-align: center; color: #999;" }, [text("BruceBox 2.1")]),
+                    div({ style: "text-align: center; color: #999;" }, [text("BruceBox 2.2")]),
                     div({ style: "margin: 5px 0; display: flex; flex-direction: row; align-items: center;" }, [
                         this._playButton,
                         div({ style: "width: 4px; height: 10px;" }),
