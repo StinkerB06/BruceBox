@@ -5672,7 +5672,7 @@ var beepbox;
             var _this = this;
             this._doc = _doc;
             this._songEditor = _songEditor;
-            this._fileName = input({ type: "text", style: "width: 10em;", value: "BruceBox Project", maxlength: 250 });
+            this._fileName = input({ type: "text", style: "width: 10em;", value: "BruceBox-Project", maxlength: 250 });
             this._enableIntro = input({ type: "checkbox" });
             this._loopDropDown = input({ style: "width: 2em;", type: "number", min: "1", max: "10", step: "1" });
             this._enableOutro = input({ type: "checkbox" });
