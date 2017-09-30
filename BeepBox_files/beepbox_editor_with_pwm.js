@@ -183,8 +183,8 @@ var beepbox;
     Music.instrumentsMax = 64;
     Music.partNames = ["triples", "standard", "arpfest", "smaller arpfest", "ninths", "sixths", "fifths", "fiftieths", "128ths galore", "sevenths", "simplified arpfest"];
     Music.partCounts = [3, 4, 16, 12, 9, 6, 5, 50, 128, 7, 8];
-Music.waveNames = ["triangle", "square", "pulse wide", "pulse narrow", "sawtooth", "double saw", "double pulse", "spiky", "plateau", "glitch", "10% pulse", "sunsoft bass", "loud pulse", "sax", "guitar", "sine", "pokey 4bit lfsr", "isolated spiky"];
-    Music.waveVolumes = [1.0, 0.5, 0.5, 0.5, 0.65, 0.5, 0.4, 0.4, 0.94, 0.5, 0.5, 1.0, 0.6, 0.2, 0.5, 1.0, 1.0, 0.4];
+Music.waveNames = ["triangle", "square", "pulse wide", "pulse narrow", "sawtooth", "double saw", "double pulse", "spiky", "plateau", "glitch", "10% pulse", "sunsoft bass", "loud pulse", "sax", "guitar", "sine", "pokey 4bit lfsr", "pokey 5step bass", "isolated spiky"];
+    Music.waveVolumes = [1.0, 0.5, 0.5, 0.5, 0.65, 0.5, 0.4, 0.4, 0.94, 0.5, 0.5, 1.0, 0.6, 0.2, 0.5, 1.0, 1.0, 1.0, 0.4];
     Music.drumNames = ["retro", "white"];
     Music.drumVolumes = [0.25, 1.0];
     Music.filterNames = ["sustain sharp", "sustain medium", "sustain soft", "decay sharp", "decay medium", "decay soft", "ring", "muffled", "submerged", "shift"];
@@ -1243,8 +1243,9 @@ Music.waveNames = ["triangle", "square", "pulse wide", "pulse narrow", "sawtooth
 		new Float64Array([1.0 / 15.0, 3.0 / 15.0, 5.0 / 15.0, 9.0, 0.06]),
 		new Float64Array([-0.5, 3.5, 3.0, -0.5, -0.25, -1.0]),
 		new Float64Array([0.0, 0.05, 0.125, 0.2, 0.25, 0.3, 0.425, 0.475, 0.525, 0.625, 0.675, 0.725, 0.775, 0.8, 0.825, 0.875, 0.9, 0.925, 0.95, 0.975, 0.98, 0.99, 0.995, 1, 0.995, 0.99, 0.98, 0.975, 0.95, 0.925, 0.9, 0.875, 0.825, 0.8, 0.775, 0.725, 0.675, 0.625, 0.525, 0.475, 0.425, 0.3, 0.25, 0.2, 0.125, 0.05, 0.0, -0.05, -0.125, -0.2, -0.25, -0.3, -0.425, -0.475, -0.525, -0.625, -0.675, -0.725, -0.775, -0.8, -0.825, -0.875, -0.9, -0.925, -0.95, -0.975, -0.98, -0.99, -0.995, -1, -0.995, -0.99, -0.98, -0.975, -0.95, -0.925, -0.9, -0.875, -0.825, -0.8, -0.775, -0.725, -0.675, -0.625, -0.525, -0.475, -0.425, -0.3, -0.25, -0.2, -0.125, -0.05]),
-		new Float64Array([1.0, -1.0, -1.0, -1.0, 1.0, 1.0, 1.0, 1.0, -1.0, 1.0, -1.0, 1.0, 1.0, -1.0, -1.0])
-		    new Float64Array([1.0, 0.0, 1.0, 0.0, 1.0, 0.0])
+		new Float64Array([1.0, -1.0, -1.0, -1.0, 1.0, 1.0, 1.0, 1.0, -1.0, 1.0, -1.0, 1.0, 1.0, -1.0, -1.0]),
+		new Float64Array([1.0, -1.0, 1.0, -1.0, 1.0]),
+		new Float64Array([1.0, -1.0, 1.0, -1.0, 1.0, -1.0])
             ];
             this._drumWaves = [new Float32Array(32767), new Float32Array(32767)];
             this.song = null;
@@ -5671,7 +5672,7 @@ var beepbox;
             var _this = this;
             this._doc = _doc;
             this._songEditor = _songEditor;
-            this._fileName = input({ type: "text", style: "width: 10em;", value: "BruceBox-Project", maxlength: 250 });
+            this._fileName = input({ type: "text", style: "width: 10em;", value: "BruceBox Project", maxlength: 250 });
             this._enableIntro = input({ type: "checkbox" });
             this._loopDropDown = input({ style: "width: 2em;", type: "number", min: "1", max: "10", step: "1" });
             this._enableOutro = input({ type: "checkbox" });
